@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+jina
+
+
+
+# Vector database
+chromadb
+
+# Redis for session chat history
+redis
+
+# RSS parsing (optional)
+feedparser
