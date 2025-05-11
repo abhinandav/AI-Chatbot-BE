@@ -108,3 +108,21 @@ Get full Q&A history for a session.
 
 ### DELETE /session/{session_id}
 Clear chat history for a session.
+
+
+
+## 💾 In-Memory Caching (Redis)
+This app uses Redis to cache user session history and chatbot conversations.
+
+### ✅ Session Caching
+Each session is stored in Redis under the session ID
+
+Conversations are stored as JSON strings in a Redis list
+
+### ⏳ Configuring TTL (Auto-Expiry)
+To avoid storing unused sessions forever, a TTL (Time-To-Live) is applied:
+
+``` bash
+r.expire(session_id, 3600)  # Session auto-expires after 1 hour
+```
+You can change TTL by modifying the ttl parameter in add_to_history().

@@ -14,6 +14,5 @@ def add_documents(documents: list[str], metadatas: list[dict], ids: list[str]):
     # client.persist()  # No need to save manually, it's persisted automatically
 
 def retrieve_top_k(query: str, k: int = 5):
-    print(">>> Total documents in collection:", collection.count())
     results = collection.query(query_texts=[query], n_results=k)
     return results["documents"][0]
